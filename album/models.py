@@ -5,6 +5,8 @@ from django.db import models
 class Location(models.Model):
     """storing the location the picture was taken """
     location = models.CharField(max_length = 30)
+    def __str__(self):
+        return self.location
 
     def save_loc(self):
         """ saving the location"""
@@ -21,6 +23,9 @@ class Location(models.Model):
 class Category(models.Model):
     """ storing the category of the image """
     category  = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.category
    
     def save_cat(self):
         """ saving the location"""
@@ -52,6 +57,7 @@ class Image(models.Model):
 
     def delet_image(self):
         """ function that deletes image"""
+    
     
     @classmethod
     def update_image(cls,item):
