@@ -73,9 +73,9 @@ class Image(models.Model):
     @classmethod 
     def search_image_by_category(cls,category):
         """getting all images with passed category """
-        images = cls.objectst.filter(image_category__icontains = category)
-        return images
+        return cls.objects.filter(image_category__category = category)
+         
     @classmethod 
     def filter_by_location(cls, location):
         """ getting image with lcoation """
-        images = cls.objects.filter(image_location__icontains = location)
+        images = cls.objects.filter(image_location__location = location)

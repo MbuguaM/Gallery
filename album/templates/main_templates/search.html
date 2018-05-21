@@ -3,3 +3,22 @@
 {% block content %}
 {{block.super}}
 {% endblock %}
+
+<div class="container">
+
+    <div class="row">
+      {% if searched_images%}
+        <h2 class="">Found {{ searched_images|length }} of searched term {{message}}</h2>
+        <hr>
+        {% for image in searched_images %}
+                    <div class="col-sm-6 col-md-3">
+                        <a href="{% url 'details' image.id%}"><h1>{{image.image_name}}</h1></a>
+                    </div>
+         {% endfor %}
+      {% else %}
+        <h2 class="lead text-danger"> Found 0 searched_images for the search term {{message}}</h2>
+      {% endif %}
+  
+    </div>
+  
+  </div>
